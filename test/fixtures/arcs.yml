@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  direction: MyString
+  arc_distance: 1.5
+
+two:
+  direction: MyString
+  arc_distance: 1.5
