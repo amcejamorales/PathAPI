@@ -5,11 +5,11 @@ one:
   forward_opening: false
   left_opening: false
   right_opening: false
-  distance_from_start: 1.5
+  distance_from_start: 0.0
 
 two:
-  order: 1
+  order: 2
   forward_opening: false
   left_opening: false
   right_opening: false
-  distance_from_start: 1.5
+  distance_from_start: 5.0

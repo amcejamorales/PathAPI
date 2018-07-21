@@ -17,4 +17,11 @@ describe Graph do
 
   end # validations
 
+  describe "relations" do
+    it "has many arcs" do
+      graph = Graph.first
+      graph.arcs
+    end
+  end # relations
+
 end
