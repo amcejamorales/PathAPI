@@ -25,6 +25,19 @@ class GraphsController < ApplicationController
   end
 
   def create
+    graph = Graph.new(graph_params)
+    if graph.save
+      render json: { id: graph.id }, status: :ok
+    else
+      render json: { errors: {
+        built_on: ["Could not create new graph; invalid 'built_on' date."]
+      } }, status: :bad_request
+    end
+  end
+
+  private
+  def graph_params
+    return params.permit(:built_on)
   end
 
 end
