@@ -1,9 +1,9 @@
 require "test_helper"
 
 describe Arc do
+  let(:arc) { Arc.new(start: arc_nodes(:arc_node_one), finish: arc_nodes(:arc_node_two)) }
 
   describe "validations" do
-    let(:arc) { Arc.new }
 
     it "must have a 'direction' field" do
       arc.arc_distance = 5.0
@@ -26,10 +26,17 @@ describe Arc do
   end # validations
 
   describe "relations" do
-    let(:arc) { arcs(:one) }
 
     it "responds to graph" do
       arc.graph
+    end
+
+    it "has a start arc_node" do
+      arc.start.node.order.must_equal 1
+    end
+
+    it "has a finish arc_node" do
+      arc.finish.node.order.must_equal 2
     end
 
   end # relations

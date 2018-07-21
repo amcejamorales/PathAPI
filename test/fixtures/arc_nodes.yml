@@ -2,6 +2,8 @@
 
 arc_node_one:
   position: MyString
+  node: one
 
-two:
+arc_node_two:
   position: MyString
+  node: two
