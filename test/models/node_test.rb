@@ -58,4 +58,13 @@ describe Node do
 
     end # validations
 
+    describe "relations" do
+
+      it "has many arc_nodes" do
+        node = Node.first
+        node.arc_nodes
+      end
+
+    end # relations
+
 end

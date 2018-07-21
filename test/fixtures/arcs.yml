@@ -3,4 +3,3 @@
 one:
   direction: F
   arc_distance: 5.0
-  graph: graph_one
