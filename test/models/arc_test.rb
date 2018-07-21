@@ -31,12 +31,20 @@ describe Arc do
       arc.graph
     end
 
+    it "has many arc_nodes" do
+      arc.arc_nodes
+    end
+
     it "has a start arc_node" do
       arc.start.node.order.must_equal 1
     end
 
     it "has a finish arc_node" do
       arc.finish.node.order.must_equal 2
+    end
+
+    it "has many nodes (through arc_nodes)" do
+      arc.nodes
     end
 
   end # relations

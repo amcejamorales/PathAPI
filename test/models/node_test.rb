@@ -2,9 +2,9 @@ require "test_helper"
 
 describe Node do
   require "test_helper"
+  let(:node) { Node.new }
 
     describe "validations" do
-      let(:node) { Node.new }
 
       it "must have an 'order' field" do
         node.forward_opening = true
@@ -61,8 +61,11 @@ describe Node do
     describe "relations" do
 
       it "has many arc_nodes" do
-        node = Node.first
         node.arc_nodes
+      end
+
+      it "has many arcs (through arc_nodes)" do 
+        node.arcs
       end
 
     end # relations
