@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+node_one:
   order: 1
   forward_opening: false
   left_opening: false
   right_opening: false
   distance_from_start: 0.0
 
-two:
+node_two:
   order: 2
   forward_opening: false
   left_opening: false

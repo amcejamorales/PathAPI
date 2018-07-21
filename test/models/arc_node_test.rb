@@ -1,7 +1,7 @@
 require "test_helper"
 
 describe ArcNode do
-  let(:arc_node) { ArcNode.new(arc: arcs(:one), node: nodes(:one)) }
+  let(:arc_node) { ArcNode.new(arc: arcs(:one), node: nodes(:node_one)) }
 
   describe "validations" do
 
@@ -26,7 +26,7 @@ describe ArcNode do
     it "responds to arc" do
       arc_node.arc
     end
-    
+
   end # relations
 
 end

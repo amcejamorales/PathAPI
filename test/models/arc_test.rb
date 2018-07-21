@@ -1,10 +1,9 @@
 require "test_helper"
 
 describe Arc do
-  let(:arc) { Arc.new(start: arc_nodes(:arc_node_one), finish: arc_nodes(:arc_node_two)) }
 
   describe "validations" do
-    let(:arc) { Arc.new(graph: graphs(:graph_one)) }
+    let(:arc) { Arc.new(graph: graphs(:graph_one), start: nodes(:node_one), finish: nodes(:node_two)) }
 
     it "must have a 'built_on' field" do
       arc.arc_distance = 5.0
@@ -29,31 +28,27 @@ describe Arc do
       arc.direction = 'F'
       arc.arc_distance = 5.0
       arc.built_on = DateTime.now
+      # arc.start = nodes(:node_one)
       arc.must_be :valid?
     end
 
   end # validations
 
   describe "relations" do
+    let(:arc) { Arc.new }
 
     it "responds to graph" do
       arc.graph
     end
 
-    it "has many arc_nodes" do
-      arc.arc_nodes
+    it "responds to start (node)" do
+      arc.start = nodes(:node_one)
+      arc.start.must_be_instance_of Node
     end
 
-    it "has a start arc_node" do
-      arc.start.node.order.must_equal 1
-    end
-
-    it "has a finish arc_node" do
-      arc.finish.node.order.must_equal 2
-    end
-
-    it "has many nodes (through arc_nodes)" do
-      arc.nodes
+    it "responds to finish (node)" do
+      arc.finish = nodes(:node_two)
+      arc.finish.must_be_instance_of Node
     end
 
   end # relations
