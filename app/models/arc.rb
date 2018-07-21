@@ -1,4 +1,5 @@
 class Arc < ApplicationRecord
+  validates :built_on, presence: true
   validates :direction, presence: true
   validates :arc_distance, presence: true
   belongs_to :graph

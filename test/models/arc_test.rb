@@ -4,22 +4,31 @@ describe Arc do
   let(:arc) { Arc.new(start: arc_nodes(:arc_node_one), finish: arc_nodes(:arc_node_two)) }
 
   describe "validations" do
+    let(:arc) { Arc.new(graph: graphs(:graph_one)) }
+
+    it "must have a 'built_on' field" do
+      arc.arc_distance = 5.0
+      arc.direction = 'F'
+      arc.must_be_instance_of Arc
+      arc.wont_be :valid?
+    end
 
     it "must have a 'direction' field" do
       arc.arc_distance = 5.0
-      arc.must_be_instance_of Arc
+      arc.built_on = DateTime.now
       arc.wont_be :valid?
     end
 
     it "must have an 'arc_distance' field" do
       arc.direction = 'F'
+      arc.built_on = DateTime.now
       arc.wont_be :valid?
     end
 
     it "is valid with 'direction' and 'arc_distance' fields" do
       arc.direction = 'F'
       arc.arc_distance = 5.0
-      arc.graph = graphs(:graph_one)
+      arc.built_on = DateTime.now
       arc.must_be :valid?
     end
 

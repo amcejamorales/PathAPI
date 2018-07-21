@@ -6,7 +6,17 @@ describe Node do
 
     describe "validations" do
 
+      it "must have a 'built_on' field" do
+        node.order = 1
+        node.forward_opening = true
+        node.left_opening = true
+        node.right_opening = true
+        node.distance_from_start = 10.0
+        node.wont_be :valid?
+      end
+
       it "must have an 'order' field" do
+        node.built_on = DateTime.now
         node.forward_opening = true
         node.left_opening = true
         node.right_opening = true
@@ -16,6 +26,7 @@ describe Node do
       end
 
       it "must have a 'forward_opening' field" do
+        node.built_on = DateTime.now
         node.order = 1
         node.left_opening = true
         node.right_opening = true
@@ -24,6 +35,7 @@ describe Node do
       end
 
       it "must have a 'left_opening' field" do
+        node.built_on = DateTime.now
         node.order = 1
         node.forward_opening = true
         node.right_opening = true
@@ -32,6 +44,7 @@ describe Node do
       end
 
       it "must have a 'right_opening' field" do
+        node.built_on = DateTime.now
         node.order = 1
         node.forward_opening = true
         node.left_opening = true
@@ -40,6 +53,7 @@ describe Node do
       end
 
       it "must have a 'distance_from_start' field" do
+        node.built_on = DateTime.now
         node.order = 1
         node.forward_opening = true
         node.left_opening = true
@@ -48,6 +62,7 @@ describe Node do
       end
 
       it "is valid with the necessary fields" do
+        node.built_on = DateTime.now
         node.order = 1
         node.forward_opening = true
         node.left_opening = true

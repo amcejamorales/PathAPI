@@ -1,4 +1,5 @@
 class Node < ApplicationRecord
+  validates :built_on, presence: true
   validates :order, presence: true
   validates :forward_opening, presence: true
   validates :left_opening, presence: true
