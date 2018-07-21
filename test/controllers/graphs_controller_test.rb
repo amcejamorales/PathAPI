@@ -12,4 +12,27 @@ describe GraphsController do
     end
   end # index
 
+  describe "show" do
+    it "can retrieve an existing graph" do
+      graph = Graph.first
+      get graph_path(graph.id)
+      must_respond_with :success
+
+      response.header['Content-Type'].must_include 'json'
+      body = JSON.parse(response.body)
+      body.must_be_kind_of Hash
+      body['id'].must_equal graph.id
+    end
+
+    it "returns not found for a graph that doesn't exist" do
+      graph_id = Graph.last.id + 1
+      get graph_path(graph_id)
+      must_respond_with :not_found
+
+      response.header['Content-Type'].must_include 'json'
+      body = JSON.parse(response.body)
+      body.must_be_kind_of Hash
+    end
+  end
+
 end
