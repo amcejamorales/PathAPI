@@ -2,7 +2,7 @@ require "test_helper"
 
 describe Node do
   require "test_helper"
-  let(:node) { Node.new }
+  let(:node) { Node.new(graph: graphs(:graph_one)) }
 
     describe "validations" do
 
@@ -60,11 +60,15 @@ describe Node do
 
     describe "relations" do
 
+      it "responds to graph" do
+        node.graph
+      end
+
       it "has many arc_nodes" do
         node.arc_nodes
       end
 
-      it "has many arcs (through arc_nodes)" do 
+      it "has many arcs (through arc_nodes)" do
         node.arcs
       end
 
