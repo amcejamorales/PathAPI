@@ -28,7 +28,6 @@ describe Arc do
       arc.direction = 'F'
       arc.arc_distance = 5.0
       arc.built_on = DateTime.now
-      # arc.start = nodes(:node_one)
       arc.must_be :valid?
     end
 

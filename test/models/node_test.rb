@@ -79,11 +79,7 @@ describe Node do
         node.graph
       end
 
-      it "has many arc_nodes" do
-        node.arc_nodes
-      end
-
-      it "has many arcs (through arc_nodes)" do
+      it "has many arcs" do
         node.arcs
       end
 

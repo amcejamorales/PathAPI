@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-arc_node_one:
-  position: MyString
-  node: one
-
-arc_node_two:
-  position: MyString
-  node: two

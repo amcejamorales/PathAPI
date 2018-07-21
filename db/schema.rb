@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_21_225657) do
+ActiveRecord::Schema.define(version: 2018_07_21_230421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "arc_nodes", force: :cascade do |t|
-    t.string "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "arc_id"
-    t.bigint "node_id"
-    t.index ["arc_id"], name: "index_arc_nodes_on_arc_id"
-    t.index ["node_id"], name: "index_arc_nodes_on_node_id"
-  end
 
   create_table "arcs", force: :cascade do |t|
     t.string "direction"
@@ -56,8 +46,6 @@ ActiveRecord::Schema.define(version: 2018_07_21_225657) do
     t.index ["graph_id"], name: "index_nodes_on_graph_id"
   end
 
-  add_foreign_key "arc_nodes", "arcs"
-  add_foreign_key "arc_nodes", "nodes"
   add_foreign_key "arcs", "graphs"
   add_foreign_key "nodes", "graphs"
 end
