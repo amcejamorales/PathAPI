@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_21_212801) do
+ActiveRecord::Schema.define(version: 2018_07_21_213456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,9 +50,12 @@ ActiveRecord::Schema.define(version: 2018_07_21_212801) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "built_on"
+    t.bigint "graph_id"
+    t.index ["graph_id"], name: "index_nodes_on_graph_id"
   end
 
   add_foreign_key "arc_nodes", "arcs"
   add_foreign_key "arc_nodes", "nodes"
   add_foreign_key "arcs", "graphs"
+  add_foreign_key "nodes", "graphs"
 end
