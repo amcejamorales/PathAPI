@@ -12,9 +12,10 @@ class GraphsController < ApplicationController
     graph = Graph.find_by(id: params[:id])
 
     unless graph
-      render json: {errors: {
-        id: ["No graph with ID #{params[:id]}"]
-      }
+      render json: {
+        errors: {
+          id: ["No graph with ID #{params[:id]}"]
+        }
       }, status: :not_found
     else
       render json: graph.as_json(

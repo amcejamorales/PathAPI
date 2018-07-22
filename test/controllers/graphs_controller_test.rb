@@ -28,10 +28,6 @@ describe GraphsController do
       graph_id = Graph.last.id + 1
       get graph_path(graph_id)
       must_respond_with :not_found
-
-      response.header['Content-Type'].must_include 'json'
-      body = JSON.parse(response.body)
-      body.must_be_kind_of Hash
     end
   end # show
 
