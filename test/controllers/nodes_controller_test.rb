@@ -36,8 +36,8 @@ describe NodesController do
         graph_id: Graph.first.id,
         order: 1,
         forward_opening: true,
-        left_opening: true,
-        right_opening: true,
+        left_opening: false,
+        right_opening: false,
         distance_from_start: 0.0
       }
       must_respond_with :success

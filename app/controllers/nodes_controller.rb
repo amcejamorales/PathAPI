@@ -25,7 +25,6 @@ class NodesController < ApplicationController
 
   def create
     node = Node.new(node_params)
-    puts node_params
     if node.save
       render json: {id: node.id }, status: :ok
     else
