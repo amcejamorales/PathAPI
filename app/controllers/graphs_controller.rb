@@ -30,9 +30,11 @@ class GraphsController < ApplicationController
     if graph.save
       render json: { id: graph.id }, status: :ok
     else
-      render json: { errors: {
-        built_on: ["Could not create new graph; invalid 'built_on' date."]
-      } }, status: :bad_request
+      render json: {
+        errors: {
+          built_on: ["Could not create new graph; invalid 'built_on' date."]
+        }
+      }, status: :bad_request
     end
   end
 
